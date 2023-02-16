@@ -1,25 +1,18 @@
-import {openDb} from './configDb.js';
-import {createTable} from './createTable.js';
-
-
 import express from 'express';
+import fs from 'fs';
+import https from 'https';
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
-openDb();
+import router from './routes.js'
+app.use(router);
 
-app.get('/', (req, res) => {
-    res.send('Olá mundo!');
-});
-app.post('/pessoa', (req, res) => {
-    console.log(req.body);
-    res.json({
-        'statusCode': 200
-    });
-});
+app.listen(3000, () => { console.log(`Servidor rodando na porta: http://localhost:3333`); })
 
-app.listen(3333, () => {
-console.log(`Servidor rodando na porta: http://localhost:3333`);
-
-})
+https.createServer({
+    cert: fs.readFileSync('src/SSL/code.crt'),
+    key: fs.readFileSync('src/SSL/code.key'),
+}, app).listen(3001, () => console.log("Rodando em https"))
