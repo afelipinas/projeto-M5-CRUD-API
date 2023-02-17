@@ -10,7 +10,7 @@ app.use(cors())
 import router from './routes.js'
 app.use(router);
 
-app.listen(3000, () => { console.log(`Servidor rodando na porta: http://localhost:3333`); })
+app.listen(3000, () => { console.log(`Servidor rodando na porta: http://localhost:3000`); })
 
 https.createServer({
     cert: fs.readFileSync('src/SSL/code.crt'),
