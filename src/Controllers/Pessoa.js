@@ -1,11 +1,8 @@
 import { openDb } from '../configDB.js';
+import { createTablePessoa } from '../Models/Pessoa.js';
 
-export async function createTable(){
-    openDb()
-    .then(db => {
-        db.exec('CREATE TABLE IF NOT EXISTS Pessoa ( id INTEGER PRIMARY KEY, nome TEXT, idade INTEGER )')
-    });
-}
+createTablePessoa();
+
 export async function selectPessoas(req, res){
     openDb().then(db => {
         db.all('SELECT * FROM Pessoa').then(pessoas => res.json(pessoas))
