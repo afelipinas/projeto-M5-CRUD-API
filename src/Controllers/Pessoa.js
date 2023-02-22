@@ -19,17 +19,17 @@ export async function insertPessoa(req, res){
     let pessoa = req.body;
     openDb()
     .then(db => {
-        db.run('INSERT INTO Pessoa (nome, idade) VALUES (?,?)', [pessoa.nome, pessoa.idade])
+        db.run('INSERT INTO Pessoa (nome, email, senha) VALUES (?,?,?)', [pessoa.nome, pessoa.email, pessoa.senha])
     });
     res.json({
-        "statusCode": 200
+        "statusCode": 200 
     })
 }
 export async function updatePessoa(req, res){
     let pessoa = req.body;
     openDb()
     .then(db => {
-        db.run('UPDATE Pessoa SET nome=?, idade=? WHERE id=?', [pessoa.nome, pessoa.idade, pessoa.id])
+        db.run('UPDATE Pessoa SET nome=?, email=?, senha=? WHERE id=?', [pessoa.nome, pessoa.email, pessoa.senha, pessoa.id])
     });
     res.json({
         "statusCode": 200
