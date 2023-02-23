@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { insertPessoa, updatePessoa, selectPessoa, selectPessoas, deletePessoa} from './Controllers/Pessoa.js';
+import { insertPessoa, updatePessoa, selectPessoa, selectPessoas, deletePessoa, loginPessoa} from './Controllers/Pessoa.js';
 import { getSanduiches, getSanduiche, postSanduiche, putSanduiche, patchSanduiche, deleteSanduiche} from './Controllers/Sanduiche.js';
 
 import './Controllers/Sanduiche.js'
@@ -25,5 +25,7 @@ router.get('/pessoa', selectPessoa);
 router.post('/pessoa', insertPessoa);
 router.patch('/pessoa', updatePessoa);
 router.delete('/pessoa', deletePessoa);
+
+router.post('/login', loginPessoa)
 
 export default router; 
