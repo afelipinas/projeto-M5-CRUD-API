@@ -32,16 +32,23 @@ export async function loginPessoa(req, res){
                 res.send(error);
             }
             if(result.length > 0){
-                // console.log(compareHash(senha, result[0].senha))
+                const compare = compareHash(senha, result[0].senha)
+                if(compare){
+                    res.send("Usuário logado com sucesso")
+                    console.log("correta")
+                }else{
+                    res.send("Senha incorreta!")
+                    console.log("incorreta")
+                }
                 // res.status(200).send({msg: "Usuário logado!"})
-                bcrypt.compare(senha, result[0].senha)
-                .then((result, erro) => {
-                    if(result){
-                        res.send("Usuário logado com sucesso")
-                    }else{
-                        res.send("Senha incorreta!")
-                    }
-                })
+                // bcrypt.compare(senha, result[0].senha)
+                // .then((result, erro) => {
+                //     if(result){
+                //         res.send("Usuário logado com sucesso")
+                //     }else{
+                //         res.send("Senha incorreta!")
+                //     }
+                // })
             }
             else{
                 res.status(400).send("Usuário não encontrado!")
