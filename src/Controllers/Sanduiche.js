@@ -21,7 +21,7 @@ export async function postSanduiche(req, res){
     let sanduiche = req.body;
     openDb()
     .then(db => {
-        db.run('INSERT INTO sanduiche (nome, descricao, preco, imagem_sanduiche) VALUES (?,?,?,?)', [sanduiche.nome, sanduiche.descricao, sanduiche.preco, sanduiche.imagem])
+        db.run('INSERT INTO sanduiche (nome, descricao, preco, imagem_sanduiche) VALUES (?,?,?,?)', [sanduiche.nome, sanduiche.descricao, sanduiche.preco, sanduiche.imagem_sanduiche])
     });
     res.json({
         "statusCode": 200
