@@ -31,22 +31,11 @@ export async function postCliente(req, res){
     })
 }
 
-//para atualizar dados do cliente (put)
+//para atualizar dados do cliente (put/patch)
 export async function updateCliente(req, res){
     let cliente = req.body
     openDb().then(db=>{
         db.run('UPDATE cliente SET nome=?, email=?, senha=? WHERE cod_cliente=? ', [cliente.nome, cliente.email, cliente.senha, cliente.cod_cliente]);
-    });
-    res.json({
-        "statusCode": 200
-    })
-}
-//para atualizar dados do cliente (patch)
-export async function patchCliente(req, res){
-    let cliente = req.body;
-    openDb()
-    .then(db => {
-        db.run('UPDATE cliente SET nome=?, email=?, senha=?  WHERE cod_cliente=?', [cliente.nome, cliente.email, cliente.senha, cliente.cod_cliente]);
     });
     res.json({
         "statusCode": 200
