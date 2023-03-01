@@ -3,6 +3,7 @@ import { getPessoas, getPessoa, postPessoa, updatePessoa, deletePessoa, loginPes
 import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSanduiche} from './Controllers/Sanduiche.js';
 import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/Cliente.js';
 import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from './Controllers/Pedido.js';
+import { createTable, InsetFuncionario, updateFuncionario, selectFuncionarios, selectFuncionario, deleteFuncionario } from './controler/funcionario.js';
 
 
 const router = Router();
@@ -13,6 +14,11 @@ router.get('/', (req, res) => {
         "msg": "Api rodando"
     });
 })
+router.get('/funcionarios', selectFuncionarios); 
+router.get('/funcionario', selectFuncionario);
+router.post('/funcionario', InsetFuncionario); 
+router.put('/funcionario', updateFuncionario);
+router.delete('/funcionario', deleteFuncionario); 
 
 router.get('/sanduiches', getSanduiches);
 router.get('/sanduiche', getSanduiche);
