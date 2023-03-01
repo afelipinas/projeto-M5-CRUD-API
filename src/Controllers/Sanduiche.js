@@ -12,7 +12,7 @@ export async function getSanduiches(req, res){
 export async function getSanduiche(req, res){
     let id = req.body.cod_sanduiche
     openDb().then(db => {
-        db.get('SELECT * FROM Sanduiche WHERE cod_sanduiche=?', [id])
+        db.get('SELECT * FROM sanduiche WHERE cod_sanduiche=?', [id])
         .then(sanduiche => res.json(sanduiche)) 
     });  
 }
@@ -21,7 +21,7 @@ export async function postSanduiche(req, res){
     let sanduiche = req.body;
     openDb()
     .then(db => {
-        db.run('INSERT INTO sanduiche (nome, descricao, preco, imagem_sanduiche) VALUES (?,?,?,?)', [sanduiche.nome, sanduiche.descricao, sanduiche.preco, sanduiche.imagem_sanduiche])
+        db.run('INSERT INTO sanduiche (nome_sanduiche, descricao_sanduiche, preco_sanduiche, imagem_sanduiche) VALUES (?,?,?,?)', [sanduiche.nome_sanduiche, sanduiche.descricao_sanduiche, sanduiche.preco_sanduiche, sanduiche.imagem_sanduiche])
     });
     res.json({
         "statusCode": 200
@@ -32,7 +32,7 @@ export async function updateSanduiche(req, res){
     let sanduiche = req.body;
     openDb()
     .then(db => {
-        db.run('UPDATE sanduiche SET nome=?, descricao=?, preco=?, imagem_sanduiche=? WHERE cod_sanduiche=?', [sanduiche.nome, sanduiche.descricao, sanduiche.preco, sanduiche.imagem_sanduiche, sanduiche.cod_sanduiche])
+        db.run('UPDATE sanduiche SET nome_sanduiche=?, descricao_sanduiche=?, preco_sanduiche=?, imagem_sanduiche=? WHERE cod_sanduiche=?', [sanduiche.nome_sanduiche, sanduiche.descricao_sanduiche, sanduiche.preco_sanduiche, sanduiche.imagem_sanduiche, sanduiche.cod_sanduiche])
     });
     res.json({
         "statusCode": 200

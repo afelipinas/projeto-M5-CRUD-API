@@ -8,14 +8,14 @@ createTablePessoa();
 export async function getPessoas(req, res){
     openDb()
     .then(db => {
-        db.all('SELECT * FROM Pessoa').then(pessoas => res.json(pessoas))
+        db.all('SELECT * FROM pessoa').then(pessoas => res.json(pessoas))
     });
 }
 export async function getPessoa(req, res){
     let id = req.body.id
     openDb()
     .then(db => {
-        db.get('SELECT * FROM Pessoa WHERE id=?', [id])
+        db.get('SELECT * FROM pessoa WHERE id=?', [id])
         .then(pessoa => res.json(pessoa))
     });  
 }
@@ -25,7 +25,7 @@ export async function loginPessoa(req, res){
 
     openDb()
     .then(db => {
-        db.all('SELECT * FROM Pessoa WHERE email = ?', [email])
+        db.all('SELECT * FROM pessoa WHERE email = ?', [email])
         .then(
         (result, error) =>  {
             if(error){
@@ -65,13 +65,13 @@ export async function postPessoa(req, res){
 
     openDb()
     .then(db => {
-        db.all('SELECT * FROM Pessoa WHERE email = ?', [email])
+        db.all('SELECT * FROM pessoa WHERE email = ?', [email])
         .then((pessoas, err) => {
             if(err){
                 res.send(err);
             }
             if(pessoas.length == 0){
-                db.run('INSERT INTO Pessoa (nome, email, senha) VALUES (?,?,?)', [pessoa.nome, pessoa.email, passHash])
+                db.run('INSERT INTO pessoa (nome, email, senha) VALUES (?,?,?)', [pessoa.nome, pessoa.email, passHash])
                 res.json({
                     "statusCode": 200,
                     "message": "Usuário cadastrado com sucesso!"  
@@ -98,7 +98,7 @@ export async function updatePessoa(req, res){
     let pessoa = req.body;
     openDb()
     .then(db => {
-        db.run('UPDATE Pessoa SET nome=?, email=?, senha=? WHERE id=?', [pessoa.nome, pessoa.email, pessoa.senha, pessoa.id])
+        db.run('UPDATE pessoa SET nome=?, email=?, senha=? WHERE id=?', [pessoa.nome, pessoa.email, pessoa.senha, pessoa.id])
     });
     res.json({
         "statusCode": 200
@@ -108,7 +108,7 @@ export async function updatePessoa(req, res){
 export async function deletePessoa(req, res){
     let id = req.body.id;
     openDb().then(db => {
-        db.get('DELETE FROM Pessoa WHERE id=?', [id])
+        db.get('DELETE FROM pessoa WHERE id=?', [id])
         .then(res => res)
     });
     res.json({

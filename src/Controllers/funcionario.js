@@ -1,55 +1,51 @@
-// import res from 'express/lib/response';
-import { openDb } from '../configDB.js';
+import { openDb } from "../configDB.js";
+import {createTableFuncionario} from "../Models/Funcionario.js";
 
-export async function createTable(){
+createTableFuncionario();
+
+export async function getFuncionarios(req, res){
     openDb().then(db=>{
-        db.exec('CREATE TABLE IF NOT EXISTS Funcionario (id INTEGER PRIMARY KEY NOT NULL, nome varchar(50) NOT NULL, sobrenome varchar(50) NOT NULL, cargo varchar(30) NOT NULL, periodo varchar(50) )')
-    })
+        db.all('SELECT * FROM funcionario')
+        .then(funcionarios=> res.json(funcionarios))
+    });
+
 }
 
-export async function selectFuncionarios(req, res){
+export async function getFuncionario(req, res){
+    let cod_funcionario = req.body.cod_funcionario;
     openDb().then(db=>{
-        db.all('SELECT * FROM Funcionario')
-       .then(funcionarios=> res.json(funcionarios))
-   });
-
-   }
-
-   export async function selectFuncionario(req, res){
-       let id = req.body.id;
-        openDb().then(db=>{
-           db.get('SELECT * FROM Funcionario WHERE id=?' , [id])
-           .then(funcionario=> res.json(funcionario) );
-       });
-    }
-export async function InsetFuncionario(req, res){
+        db.get('SELECT * FROM funcionario WHERE cod_funcionario=?' , [cod_funcionario])
+        .then(funcionario=> res.json(funcionario) );
+    });
+}
+export async function postFuncionario(req, res){
     let funcionario = req.body;
     openDb().then(db=>{
-        db.run('INSERT INTO Funcionario (nome, sobrenome,cargo,periodo) VALUES (?,?,?,?)', [funcionario.nome, funcionario.sobrenome, funcionario.cargo, funcionario.periodo]);
+        db.run('INSERT INTO funcionario (nome_funcionario, sobrenome_funcionario, cargo_funcionario, periodo_funcionario) VALUES (?,?,?,?)', [funcionario.nome_funcionario, funcionario.sobrenome_funcionario, funcionario.cargo_funcionario, funcionario.periodo_funcionario]);
     });
     res.json({
-        "statusCode": 200
+        "statusCode": 200 
     })
 }
 
 export async function updateFuncionario(req, res){
     let funcionario = req.body;
     openDb().then(db=>{
-        db.run('UPDATE Funcionario SET nome=?, sobrenome=?,cargo=?,periodo=? WHERE id=?', [funcionario.nome, funcionario.sobrenome, funcionario.cargo, funcionario.periodo]);
+        db.run('UPDATE funcionario SET nome_funcionario=?, sobrenome_funcionario=?, cargo_funcionario=?, periodo_funcionario=? WHERE cod_funcionario=?', [funcionario.nome_funcionario, funcionario.sobrenome_funcionario, funcionario.cargo_funcionario, funcionario.periodo_funcionario, funcionario.cod_funcionario]);
     });
     res.json({
         "statusCode": 200
     })
 }
 
-    export async function deleteFuncionario(req, res){
-        let id = req.id;
-         openDb().then(db=>{
-             db.get('DELETE FROM Funcionario WHERE id=?' , [id])
-            .then(res=>res)
-        });
-        res.json({
-            "statusCode": 200
-        })
-    }
+export async function deleteFuncionario(req, res){
+    let cod_funcionario = req.body.cod_funcionario;
+        openDb().then(db=>{
+            db.get('DELETE FROM funcionario WHERE cod_funcionario=?', [cod_funcionario])
+        .then(res=>res)
+    });
+    res.json({
+        "statusCode": 200
+    })
+}
 

@@ -21,21 +21,21 @@ export async function getClientes(req, res){
  }
 
 //para inserir novos clientes (post)
-export async function postCliente(req, res){
+export async function postCliente(req, res){ 
     let cliente = req.body
     openDb().then(db=>{
-        db.run('INSERT INTO cliente (nome, email, senha) VALUES (?,?,?)', [cliente.nome, cliente.email, cliente.senha]);
+        db.run('INSERT INTO cliente (nome_cliente, email_cliente, senha_cliente) VALUES (?,?,?)', [cliente.nome_cliente, cliente.email_cliente, cliente.senha_cliente]);
     });
     res.json({
         "statusCode": 200
-    })
+    }) 
 }
 
 //para atualizar dados do cliente (put/patch)
 export async function updateCliente(req, res){
     let cliente = req.body
     openDb().then(db=>{
-        db.run('UPDATE cliente SET nome=?, email=?, senha=? WHERE cod_cliente=? ', [cliente.nome, cliente.email, cliente.senha, cliente.cod_cliente]);
+        db.run('UPDATE cliente SET nome_cliente=?, email_cliente=?, senha_cliente=? WHERE cod_cliente=? ', [cliente.nome_cliente, cliente.email_cliente, cliente.senha_cliente, cliente.cod_cliente]);
     });
     res.json({
         "statusCode": 200

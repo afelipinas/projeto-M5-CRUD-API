@@ -16,8 +16,8 @@ export async function getPedido(req, res){
     let pedido = req.body
     openDb()
     .then(db => {
-        db.all('SELECT San.nome, San.preco, Cli.nome_cliente FROM Sanduiche San INNER JOIN Pedido Ped ON Ped.cod_sanduiche = San.cod_sanduiche INNER JOIN Cliente Cli ON Cli.cod_cliente = Ped.cod_cliente WHERE cod_pedido=?', [pedido.cod_pedido]).then(pessoas => res.json(pessoas))
-    });
+        db.all('SELECT San.nome_sanduiche, San.preco_sanduiche, Cli.nome_cliente FROM sanduiche San INNER JOIN pedido Ped ON Ped.cod_sanduiche = San.cod_sanduiche INNER JOIN cliente Cli ON Cli.cod_cliente = Ped.cod_cliente WHERE cod_pedido=?', [pedido.cod_pedido]).then(pessoas => res.json(pessoas))
+    }); 
 }
 
  //para inserir novos pedidos (post)
