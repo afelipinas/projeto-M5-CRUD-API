@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import { Router } from 'express';
 import { getPessoas, getPessoa, postPessoa, updatePessoa, deletePessoa, loginPessoa} from './Controllers/Pessoa.js';
 import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSanduiche} from './Controllers/Sanduiche.js';
 import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/Cliente.js';
