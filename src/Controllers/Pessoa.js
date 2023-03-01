@@ -5,13 +5,13 @@ import * as bcrypt from "bcrypt";
 
 createTablePessoa();
 
-export async function selectPessoas(req, res){
+export async function getPessoas(req, res){
     openDb()
     .then(db => {
         db.all('SELECT * FROM Pessoa').then(pessoas => res.json(pessoas))
     });
 }
-export async function selectPessoa(req, res){
+export async function getPessoa(req, res){
     let id = req.body.id
     openDb()
     .then(db => {
@@ -56,7 +56,7 @@ export async function loginPessoa(req, res){
         }) 
     })
 }
-export async function insertPessoa(req, res){
+export async function postPessoa(req, res){
     let pessoa = req.body;
     const email = req.body.email;
     const senha = req.body.senha;

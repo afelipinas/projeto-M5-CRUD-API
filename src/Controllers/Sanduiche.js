@@ -28,18 +28,7 @@ export async function postSanduiche(req, res){
     })
 }
 
-export async function putSanduiche(req, res){
-    let sanduiche = req.body;
-    openDb()
-    .then(db => {
-        db.run('UPDATE sanduiche SET nome=?, descricao=?, preco=?, imagem_sanduiche=? WHERE cod_sanduiche=?', [sanduiche.nome, sanduiche.descricao, sanduiche.preco, sanduiche.imagem_sanduiche, sanduiche.cod_sanduiche])
-    });
-    res.json({
-        "statusCode": 200
-    })
-}
-
-export async function patchSanduiche(req, res){
+export async function updateSanduiche(req, res){
     let sanduiche = req.body;
     openDb()
     .then(db => {

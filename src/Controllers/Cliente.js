@@ -4,7 +4,7 @@ import {createTableCliente} from "../Models/Cliente.js";
 createTableCliente();
 
 //para selecionar todos os clientes (Get)
-export async function selectClientes(req, res){
+export async function getClientes(req, res){
      openDb().then(db=>{
         db.all('SELECT * FROM cliente ')
         .then(clientes =>res.json(clientes))
@@ -12,7 +12,7 @@ export async function selectClientes(req, res){
  }
 
 //para selecionar apenas um cliente (Get)
- export async function selectCliente(req, res){
+ export async function getCliente(req, res){
     let cod_cliente =req.body.cod_cliente
     openDb().then(db=>{
       db.get('SELECT * FROM cliente WHERE cod_cliente=?', [cod_cliente])
@@ -21,7 +21,7 @@ export async function selectClientes(req, res){
  }
 
 //para inserir novos clientes (post)
-export async function insertCliente(req, res){
+export async function postCliente(req, res){
     let cliente = req.body
     openDb().then(db=>{
         db.run('INSERT INTO cliente (nome, email, senha) VALUES (?,?,?)', [cliente.nome, cliente.email, cliente.senha]);
