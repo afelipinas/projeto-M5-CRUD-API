@@ -1,5 +1,7 @@
 import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSanduiche} from './Controllers/SanduicheController.js';
 
+import { getBebidas, getBebida, postBebida, updateBebida, deleteBebida} from './Controllers/BebidaController.js';
+
 import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/ClienteController.js';
 
 import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from './Controllers/PedidoController.js';
@@ -22,6 +24,13 @@ router.post('/sanduiche', postSanduiche);
 router.put('/sanduiche', updateSanduiche);
 router.patch('/sanduiche', updateSanduiche);
 router.delete('/sanduiche', deleteSanduiche); 
+
+router.get('/bebidas', getBebidas);
+router.get('/bebida', getBebida);
+router.post('/bebida', postBebida);
+router.put('/bebida', updateBebida);
+router.patch('/bebida', updateBebida);
+router.delete('/bebida', deleteBebida); 
 
 router.get('/clientes', getClientes); //rota para selecinar dados de vários clientes
 router.get('/cliente', getCliente); //rota para selecionar dados de um cliente
