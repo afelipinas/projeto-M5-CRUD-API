@@ -1,5 +1,5 @@
 import { openDb } from "../configDB.js";
-import {createTableCliente} from "../Models/Cliente.js";
+import {createTableCliente} from "../Models/cliente.js";
 
 createTableCliente();
 

@@ -1,5 +1,5 @@
 import { openDb } from "../configDB.js";
-import { createTablePedido } from "../Models/Pedido.js";
+import { createTablePedido } from "../Models/pedido.js";
 
 createTablePedido();
 

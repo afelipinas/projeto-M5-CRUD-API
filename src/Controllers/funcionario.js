@@ -1,5 +1,5 @@
 import { openDb } from "../configDB.js";
-import {createTableFuncionario} from "../Models/Funcionario.js";
+import {createTableFuncionario} from "../Models/funcionario.js";
 
 createTableFuncionario();
 

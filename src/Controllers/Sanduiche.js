@@ -1,5 +1,5 @@
 import { openDb } from '../configDB.js';
-import { createTableSanduiche } from '../Models/Sanduiche.js';
+import { createTableSanduiche } from '../Models/sanduiche.js';
 
 createTableSanduiche();
 
