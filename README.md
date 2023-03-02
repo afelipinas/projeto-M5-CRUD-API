@@ -13,11 +13,11 @@ aplicativo. <br>Escolhemos Hamburgueria para o tema do aplicativo.
 
 ## Autores
 
-- [@fernandorussie](https://www.github.com/fernandorussie)
-- [@millenakeli](https://www.github.com/millenakeli)
-- [@afelipinas](https://www.github.com/afelipinas)
-- [@kayllane29](https://www.github.com/kayllane29)
-- [@fernandorussie](https://www.github.com/octokatherine)
+- [@Fernando](https://www.github.com/fernandorussie)
+- [@Millena](https://www.github.com/millenakeli)
+- [@Felipe](https://www.github.com/afelipinas)
+- [@Kayllane](https://www.github.com/kayllane29)
+- [@Max](https://www.github.com/sabino05)
 
 ## Referência
 Projeto que tivemos de inspiração para a criação do nosso
