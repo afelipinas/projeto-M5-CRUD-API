@@ -1,10 +1,12 @@
+import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSanduiche} from './Controllers/SanduicheController.js';
+
+import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/ClienteController.js';
+
+import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from './Controllers/PedidoController.js';
+
+import { getFuncionarios, getFuncionario, postFuncionario, updateFuncionario, deleteFuncionario } from './Controllers/FuncionarioController.js';
+
 import { Router } from 'express';
-
-import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSanduiche} from './Controllers/Sanduiche.js';
-import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/Cliente.js';
-import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from './Controllers/Pedido.js';
-import { getFuncionarios, getFuncionario, postFuncionario, updateFuncionario, deleteFuncionario } from './Controllers/funcionario.js';
-
 const router = Router();
 
 router.get('/', (req, res) => {
