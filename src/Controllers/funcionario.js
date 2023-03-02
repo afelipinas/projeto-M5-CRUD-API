@@ -6,7 +6,7 @@ createTableFuncionario();
 export async function getFuncionarios(req, res){
     openDb().then(db=>{
         db.all('SELECT * FROM funcionario')
-        .then(funcionarios=> res.json(funcionarios))
+        .then(funcionario=> res.json(funcionario))
     });
 
 }
@@ -34,7 +34,7 @@ export async function updateFuncionario(req, res){
         db.run('UPDATE funcionario SET nome_funcionario=?, sobrenome_funcionario=?, cargo_funcionario=?, periodo_funcionario=? WHERE cod_funcionario=?', [funcionario.nome_funcionario, funcionario.sobrenome_funcionario, funcionario.cargo_funcionario, funcionario.periodo_funcionario, funcionario.cod_funcionario]);
     });
     res.json({
-        "statusCode": 200
+        "statusCode": 200 
     })
 }
 
