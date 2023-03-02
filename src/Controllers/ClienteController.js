@@ -1,7 +1,7 @@
 import { openDb } from "../configDB.js";
 import {createTableCliente} from "../Models/Cliente.js";
-import {generateHash, compareHash} from './password.js'
-import * as bcrypt from "bcrypt";
+// import {generateHash, compareHash} from './password.js'
+// import * as bcrypt from "bcrypt";
 createTableCliente();
 
 
