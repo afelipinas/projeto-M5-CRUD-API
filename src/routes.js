@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSanduiche} from './Controllers/sanduiche.js';
-import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/cliente.js';
-import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from './Controllers/pedido.js';
-import { getFuncionarios, getFuncionario, postFuncionario, updateFuncionario, deleteFuncionario } from './Controllers/funcionario.js';
+import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSanduiche} from './Controllers/Sanduiche.js';
+import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/Cliente.js';
+import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from './Controllers/Pedido.js';
+import { getFuncionarios, getFuncionario, postFuncionario, updateFuncionario, deleteFuncionario } from './Controllers/Funcionario.js';
 
 const router = Router();
 
