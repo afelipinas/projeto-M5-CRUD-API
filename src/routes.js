@@ -4,7 +4,7 @@ import { getPessoas, getPessoa, postPessoa, updatePessoa, deletePessoa, loginPes
 import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSanduiche} from './Controllers/Sanduiche.js';
 import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/Cliente.js';
 import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from './Controllers/Pedido.js';
-import { getFuncionarios, getFuncionario, postFuncionario, updateFuncionario, deleteFuncionario } from './Controllers/Funcionario.js';
+// import { getFuncionarios, getFuncionario, postFuncionario, updateFuncionario, deleteFuncionario } from './Controllers/Funcionario.js';
 
 
 const router = Router();
@@ -16,12 +16,12 @@ router.get('/', (req, res) => {
     });
 })
 
-router.get('/funcionarios', getFuncionarios); 
-router.get('/funcionario', getFuncionario);
-router.post('/funcionario', postFuncionario); 
-router.put('/funcionario', updateFuncionario);
-router.patch('/funcionario', updateFuncionario);
-router.delete('/funcionario', deleteFuncionario); 
+// router.get('/funcionarios', getFuncionarios); 
+// router.get('/funcionario', getFuncionario);
+// router.post('/funcionario', postFuncionario); 
+// router.put('/funcionario', updateFuncionario);
+// router.patch('/funcionario', updateFuncionario);
+// router.delete('/funcionario', deleteFuncionario); 
 
 router.get('/sanduiches', getSanduiches);
 router.get('/sanduiche', getSanduiche);
@@ -49,7 +49,6 @@ router.get('/pessoa', getPessoa);
 router.post('/pessoa', postPessoa);
 router.patch('/pessoa', updatePessoa);
 router.delete('/pessoa', deletePessoa);
-router.post('/login', loginPessoa);
 router.post('/login', loginPessoa);
 
 export default router; 
