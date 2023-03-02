@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
         "msg": "Api rodando"
     });
 })
+
 router.get('/funcionarios', getFuncionarios); 
 router.get('/funcionario', getFuncionario);
 router.post('/funcionario', postFuncionario); 
