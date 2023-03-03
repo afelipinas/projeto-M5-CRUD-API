@@ -16,4 +16,4 @@ app.listen(3000, () => { console.log(`Servidor rodando na porta: http://localhos
 https.createServer({ 
     cert: fs.readFileSync('src/SSL/code.crt'),
     key: fs.readFileSync('src/SSL/code.key'),
-}, app).listen(3001, () => console.log("Rodando em https"))
+}, app).listen(3001, () => console.log("Rodando em https")) 

@@ -8,6 +8,8 @@ import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from '.
 
 import { getFuncionarios, getFuncionario, postFuncionario, updateFuncionario, deleteFuncionario } from './Controllers/FuncionarioController.js';
 
+import { loginUsers, registerUsers } from './Controllers/UsersController.js'
+
 import { Router } from 'express';
 const router = Router();
 
@@ -17,6 +19,9 @@ router.get('/', (req, res) => {
         "msg": "Api rodando"
     });
 })
+
+router.post('/login', loginUsers)
+router.post('/register', registerUsers)
 
 router.get('/sanduiches', getSanduiches);
 router.get('/sanduiche', getSanduiche);

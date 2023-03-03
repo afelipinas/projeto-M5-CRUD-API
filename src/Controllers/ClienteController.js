@@ -1,73 +1,8 @@
 import { openDb } from "../configDB.js";
 import {createTableCliente} from "../Models/Cliente.js";
-// import {generateHash, compareHash} from './password.js'
-// import * as bcrypt from "bcrypt";
+
 createTableCliente();
 
-
-// export async function loginPessoa(req, res){
-//     const email = req.body.email_cliente;
-//     const senha = req.body.senha_cliente;
-
-//     openDb()
-//     .then(db => {
-//         db.all('SELECT * FROM pessoa WHERE email = ?', [email])
-//         .then(
-//         (result, error) =>  {
-//             if(error){
-//                 res.send(error);
-//             }
-//             if(result.length > 0){
-//                 const compare = compareHash(senha, result[0].senha_cliente)
-//                 if(compare){
-//                     res.send("Usuário logado com sucesso")
-//                     console.log("correta")
-//                 }else{
-//                     res.send("Senha incorreta!")
-//                     console.log("incorreta")
-//                 }
-//                 // res.status(200).send({msg: "Usuário logado!"})
-//                 // bcrypt.compare(senha, result[0].senha)
-//                 // .then((result, erro) => {
-//                 //     if(result){
-//                 //         res.send("Usuário logado com sucesso")
-//                 //     }else{
-//                 //         res.send("Senha incorreta!")
-//                 //     }
-//                 // })
-//             }
-//             else{
-//                 res.status(400).send("Usuário não encontrado!")
-//             }
-//         }) 
-//     })
-// }
-// export async function postCliente(req, res){ 
-//     let cliente = req.body
-//     const email = cliente.email_cliente;
-//     const senha = cliente.senha_cliente;
-
-//     const passHash = generateHash(senha);
-
-//     openDb().then(db=>{
-//         db.all('SELECT * FROM pessoa WHERE email = ?', [email])
-//         .then((user, err) => {
-//             if(err){
-//                 res.send(err);
-//             }
-//             if(user.length > 0){
-//                 db.run('INSERT INTO cliente (nome_cliente, email_cliente, senha_cliente) VALUES (?,?,?)', [cliente.nome_cliente, cliente.email_cliente, passHash])
-//                 res.json({
-//                     "statusCode": 200,
-//                     "message": "Usuário cadastrado com sucesso!" 
-//                 }) 
-//             }
-//             else{
-//                 res.send("Usuário já cadastrado!");
-//             }
-//         })
-//     });
-// }
 //para selecionar todos os clientes (Get)
 export async function getClientes(req, res){
      openDb().then(db=>{
