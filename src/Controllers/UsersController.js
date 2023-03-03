@@ -53,9 +53,9 @@ export async function loginUsers(req, res){
                         res.send(error)
                     }
                     if(response){
-                        res.send({validation: true})
+                        res.json({validation: true, results: rows})
                     }else{
-                        res.send({validation: false})
+                        res.send({validation: false}) 
                     }
                 }) 
             }else{
