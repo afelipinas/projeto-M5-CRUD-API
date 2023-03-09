@@ -24,7 +24,7 @@ export async function getBebidas(req, res){
 export async function postBebida(req, res){  
     let bebida = req.body
     openDb().then(db=>{
-        db.run('INSERT INTO bebida (nome_bebida, descricao_bebida, preco_bebida, imagem_bebida) VALUES (?,?,?,?)', [bebida.nome_bebida, bebida.descricao_bebida, bebida.preco_bebida, bebida.imagem_bebida]);
+        db.run('INSERT INTO bebida (nome_bebida, descricao_bebida, preco_bebida, imagem_bebida, qt_bebida) VALUES (?,?,?,?,?)', [bebida.nome_bebida, bebida.descricao_bebida, bebida.preco_bebida, bebida.imagem_bebida, bebida.qt_bebida]);
     });
     res.json({
         "statusCode": 200
@@ -35,7 +35,7 @@ export async function postBebida(req, res){
 export async function updateBebida(req, res){
     let bebida = req.body
     openDb().then(db=>{
-        db.run('UPDATE bebida SET nome_bebida=?, descricao_bebida=?, preco_bebida=?, imagem_bebida=? WHERE cod_bebida=? ', [bebida.nome_bebida, bebida.descricao_bebida, bebida.preco_bebida, bebida.imagem_bebida, bebida.cod_bebida]);
+        db.run('UPDATE bebida SET nome_bebida=?, descricao_bebida=?, preco_bebida=?, imagem_bebida=?, qt_bebida=? WHERE cod_bebida=? ', [bebida.nome_bebida, bebida.descricao_bebida, bebida.preco_bebida, bebida.imagem_bebida, bebida.qt_bebida, bebida.cod_bebida]);
     });
     res.json({
         "statusCode": 200

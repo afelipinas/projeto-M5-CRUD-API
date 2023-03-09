@@ -2,13 +2,13 @@ import { getSanduiches, getSanduiche, postSanduiche, updateSanduiche, deleteSand
 
 import { getBebidas, getBebida, postBebida, updateBebida, deleteBebida} from './Controllers/BebidaController.js';
 
-import { getClientes, getCliente, postCliente, updateCliente, deleteCliente} from './Controllers/ClienteController.js';
+import { getClientes, getCliente, registerCliente, loginCliente, updateCliente, deleteCliente} from './Controllers/ClienteController.js';
 
 import { getPedidos, getPedido, postPedido, updatePedido, deletePedido } from './Controllers/PedidoController.js';
 
 import { getFuncionarios, getFuncionario, postFuncionario, updateFuncionario, deleteFuncionario } from './Controllers/FuncionarioController.js';
 
-import { loginUsers, registerUsers } from './Controllers/UsersController.js'
+// import { loginUsers, registerUsers } from './Controllers/UsersController.js'
 
 import { Router } from 'express';
 const router = Router();
@@ -20,8 +20,8 @@ router.get('/', (req, res) => {
     });
 })
 
-router.post('/login', loginUsers)
-router.post('/register', registerUsers)
+// router.post('/login', loginUsers)
+// router.post('/register', registerUsers)
 
 router.get('/sanduiches', getSanduiches);
 router.get('/sanduiche', getSanduiche);
@@ -39,7 +39,8 @@ router.delete('/bebida', deleteBebida);
 
 router.get('/clientes', getClientes); //rota para selecinar dados de vários clientes
 router.get('/cliente', getCliente); //rota para selecionar dados de um cliente
-router.post('/cliente', postCliente); //rota para adicionar dados de novos clientes
+router.post('/register', registerCliente); //rota para adicionar dados de novos clientes
+router.post('/login', loginCliente); //rota para adicionar dados de novos clientes
 router.put('/cliente', updateCliente); //rota para atualizar dados do cliente
 router.patch('/cliente', updateCliente); //rota para atualizar dados do cliente
 router.delete('/cliente', deleteCliente); //rota para excluir dados do cliente

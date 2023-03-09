@@ -21,7 +21,7 @@ export async function postSanduiche(req, res){
     let sanduiche = req.body;
     openDb()
     .then(db => {
-        db.run('INSERT INTO sanduiche (nome_sanduiche, descricao_sanduiche, preco_sanduiche, imagem_sanduiche) VALUES (?,?,?,?)', [sanduiche.nome_sanduiche, sanduiche.descricao_sanduiche, sanduiche.preco_sanduiche, sanduiche.imagem_sanduiche])
+        db.run('INSERT INTO sanduiche (nome_sanduiche, descricao_sanduiche, preco_sanduiche, imagem_sanduiche, qt_sanduiche) VALUES (?,?,?,?,?)', [sanduiche.nome_sanduiche, sanduiche.descricao_sanduiche, sanduiche.preco_sanduiche, sanduiche.imagem_sanduiche, sanduiche.qt_sanduiche])
     });
     res.json({
         "statusCode": 200
@@ -32,7 +32,7 @@ export async function updateSanduiche(req, res){
     let sanduiche = req.body;
     openDb()
     .then(db => {
-        db.run('UPDATE sanduiche SET nome_sanduiche=?, descricao_sanduiche=?, preco_sanduiche=?, imagem_sanduiche=? WHERE cod_sanduiche=?', [sanduiche.nome_sanduiche, sanduiche.descricao_sanduiche, sanduiche.preco_sanduiche, sanduiche.imagem_sanduiche, sanduiche.cod_sanduiche])
+        db.run('UPDATE sanduiche SET nome_sanduiche=?, descricao_sanduiche=?, preco_sanduiche=?, imagem_sanduiche=?, qt_sanduiche=? WHERE cod_sanduiche=?', [sanduiche.nome_sanduiche, sanduiche.descricao_sanduiche, sanduiche.preco_sanduiche, sanduiche.imagem_sanduiche, sanduiche.qt_sanduiche, sanduiche.cod_sanduiche])
     });
     res.json({
         "statusCode": 200

@@ -46,21 +46,26 @@ export async function loginUsers(req, res){
             if(err){
                 return res.json({err}); 
             } 
-            if(rows.length > 0){ 
+            if(rows.length > 0){  
+                console.log('email igual');
                 bcrypt.compare(senha_users, rows[0].senha_users)
                 .then((response, error) => {
-                    if(error){
-                        res.send(error)
-                    }
+                    // if(error){
+                    //     res.send(error)
+                    // }
                     if(response){
+                        console.log('senha igual');
                         res.json({validation: true, results: rows})
                     }else{
-                        res.send({validation: false}) 
+                        console.log('senha diferente');
+                        return (res.send({msg: "Usuário não credenciado. Invalido!", validation: false}))
+                        // return res.json({validation: false}) 
                     }
                 }) 
             }else{
-                return (res.send({msg: "Usuário não credenciado. Invalido!", validation: false}
-                ))
+                console.log('email diferente');
+                res.json({msg: "Usuário não credenciado. Invalido!", validation: false}
+                )
             }
         })
     })
